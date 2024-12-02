@@ -75,6 +75,10 @@ class ProntuárioResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+                
                 Tables\Columns\TextColumn::make('animal.nome')
                 ->label('Nome do Animal')
                 ->searchable(),

@@ -77,8 +77,13 @@ class AnimaisResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+
                 Tables\Columns\TextColumn::make('nome')
                 ->searchable(),
+
                 Tables\Columns\TextColumn::make('raca.nome_raca')
                 ->label('Raça')
                 ->searchable(),

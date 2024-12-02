@@ -69,6 +69,11 @@ class AplicaçãoResource extends Resource
     {
         return $table
             ->columns([
+
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+
                 Tables\Columns\TextColumn::make('data_aplicacao')
                 ->label('Data da aplicação')
                 ->date('d/m/Y')

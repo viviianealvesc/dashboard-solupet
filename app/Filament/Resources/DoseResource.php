@@ -49,9 +49,13 @@ class DoseResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+                
                 Tables\Columns\TextColumn::make('descricao')
                 ->searchable(),
-                Tables\Columns\TextColumn::make('descricao_resuzida')
+                Tables\Columns\TextColumn::make('descricao_reduzida')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('sigla')
                 ->searchable(),

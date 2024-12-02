@@ -34,6 +34,10 @@ class EspecieResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+                
                 Tables\Columns\TextColumn::make('nome_especie')
                 ->searchable(),
             ])
