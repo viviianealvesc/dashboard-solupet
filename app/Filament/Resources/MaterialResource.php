@@ -34,15 +34,23 @@ class MaterialResource extends Resource
                 ->placeholder('Ex: Protege contra o virus da raiva')
                 ->required(),
 
-                Forms\Components\TextInput::make('tipo_material')
+                Forms\Components\Select::make('tipo_material')
                 ->label('Tipo do material')
-                ->placeholder('Ex: Vacina')
+                ->options([
+                    'vacina' => 'Vacina',
+                    'medicamento' => 'Medicamento',
+                ])
                 ->required(),
                 
-                Forms\Components\Select::make('id_dose')
-                ->label('Selecione a dose')
-                ->options(
-                    Dose::all()->pluck('descricao_reduzida', 'id')->toArray()
+                Forms\Components\Select::make('numero_repeticoes')
+                ->label('Selecione o número de repetições')
+                ->options([
+                    '1' => '1',
+                    '2' => '2',
+                    '3' => '3',
+                    '4' => '4',
+                    '5' => '5',
+                ]
                 )
                 ->required(),
             ]);
@@ -52,12 +60,16 @@ class MaterialResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+                
                 Tables\Columns\TextColumn::make('nome')
                 ->searchable(),
                 Tables\Columns\TextColumn::make('descricao'),
                 Tables\Columns\TextColumn::make('tipo_material')
                 ->searchable(),
-                Tables\Columns\TextColumn::make('dose.descricao_reduzida')
+                Tables\Columns\TextColumn::make('numero_repeticoes')
                 ->searchable()
                 ->label('Dose')
                 ->sortable(),

@@ -13,7 +13,7 @@ class Material extends Model
         'nome',
         'descricao',
         'tipo_material',
-        'id_dose',
+        'numero_repeticoes',
     ];
 
     public function prontuarios() {
@@ -28,9 +28,4 @@ class Material extends Model
  
     }
 
-    public function doses() {
-        
-        return $this->hasMany(Dose::class);
- 
-    }
 }

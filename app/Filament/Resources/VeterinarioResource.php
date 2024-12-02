@@ -44,6 +44,10 @@ class VeterinarioResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+                
                 Tables\Columns\TextColumn::make('nome')
                 ->label('Nome')
                 ->searchable(),

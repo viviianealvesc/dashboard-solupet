@@ -63,9 +63,17 @@ class TutorResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('nome'),
+                Tables\Columns\TextColumn::make('id')
+                ->label('Código')
+                ->searchable(),
+
+                Tables\Columns\TextColumn::make('nome')
+                ->searchable(),
+
                 Tables\Columns\TextColumn::make('telefone'),
-                Tables\Columns\TextColumn::make('cpf'),
+                Tables\Columns\TextColumn::make('cpf')
+                ->searchable(),
+
                 Tables\Columns\TextColumn::make('endereco'),
             ])
             ->filters([
